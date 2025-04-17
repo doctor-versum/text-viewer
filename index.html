@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Textanzeige</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 10px;
+      font-family: sans-serif;
+      white-space: pre-wrap; /* Zeilenumbrüche anzeigen! */
+    }
+  </style>
+</head>
+<body>
+  <div id="text">Kein Text übergeben</div>
+
+  <script>
+    function decodeHashText() {
+      const hash = decodeURIComponent(location.hash.substring(1));
+      document.getElementById("text").textContent = hash || "Kein Text übergeben";
+    }
+
+    window.addEventListener("load", decodeHashText);
+    window.addEventListener("hashchange", decodeHashText);
+  </script>
+</body>
+</html>
